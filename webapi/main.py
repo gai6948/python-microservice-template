@@ -1,5 +1,5 @@
-import uvicorn
 import logging
+import uvicorn
 
 from fastapi import FastAPI
 from starlette_exporter import PrometheusMiddleware, handle_metrics
