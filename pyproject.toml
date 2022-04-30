@@ -14,8 +14,8 @@ unittest-xml-reporting = "^3.2.0"
 requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
-autopep8 = "^1.6.0"
 bandit = "1.7.4"
+black = {version = "^22.3.0", allow-prereleases = true}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

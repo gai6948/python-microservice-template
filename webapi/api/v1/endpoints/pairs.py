@@ -11,5 +11,5 @@ async def get_pairs() -> Dict:
     metrics.GET_PAIRS_COUNT.inc()
     return {
         "USDRUB": round(random.random() * 100, 2),
-        "EURRUB": round(random.random() * 100, 2)
+        "EURRUB": round(random.random() * 100, 2),
     }
