@@ -72,14 +72,14 @@ jobs:
         # Will find config automatically in `setup.cfg`, `tox.ini`, or `.flake8` - https://flake8.pycqa.org/en/latest/user/configuration.html#configuration-locations
         run: |
           source venv/bin/activate
-          flake8
+          flake8 ./webapi
 
       - name: Lint code
         # Will find config automatically in `pylintrc`, `.pylintrc`, `pyproject.toml`, NOT `setup.cfg` - https://pylint.pycqa.org/en/latest/user_guide/run.html#command-line-options
         run: |
           source venv/bin/activate
           PYLINT_CONDITIONAL_ARGS=()
-          pylint **/*.py "${PYLINT_CONDITIONAL_ARGS[@]}"
+          pylint webapi/*.py "${PYLINT_CONDITIONAL_ARGS[@]}"
 
       - name: Code security check
         # Will find config automatically in `.bandit`, others have to specified with --ini - see https://github.com/PyCQA/bandit/issues/396#issuecomment-475152672
