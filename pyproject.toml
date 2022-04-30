@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "python-web-microservice-template"
+version = "0.1.0"
+description = "Skeleton for a Python (FastAPI) web-api microservice"
+authors = ["gaius <gaius4888@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.74.1"
+uvicorn = {version = "^0.17.5", extras = ["standard"]}
+starlette-exporter = "^0.12.0"
+dynaconf = "^3.1.7"
+unittest-xml-reporting = "^3.2.0"
+requests = "^2.27.1"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.6.0"
+bandit = "1.7.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
