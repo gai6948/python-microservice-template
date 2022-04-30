@@ -79,6 +79,7 @@ jobs:
         run: |
           source venv/bin/activate
           PYLINT_CONDITIONAL_ARGS=()
+          PYTHONPATH=$(pwd)
           pylint webapi/*.py "${PYLINT_CONDITIONAL_ARGS[@]}"
 
       - name: Code security check
