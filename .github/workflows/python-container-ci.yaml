@@ -94,7 +94,7 @@ jobs:
         run: |
           source venv/bin/activate
           BANDIT_CONDITIONAL_ARGS=()
-          BANDIT_CONDITIONAL_ARGS+=( . --exclude ./venv )
+          BANDIT_CONDITIONAL_ARGS+=( . --exclude ./venv -ll)
           bandit -r "${BANDIT_CONDITIONAL_ARGS[@]}"
 
       - name: Get repository accesses
