@@ -63,6 +63,14 @@ jobs:
           source venv/bin/activate
           make unit-test
 
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: test_results
+          path: |
+            *.xml
+
       - name: Verify code style (Black)
         uses: psf/black@stable
         with:
@@ -78,9 +86,8 @@ jobs:
         # Will find config automatically in `pylintrc`, `.pylintrc`, `pyproject.toml`, NOT `setup.cfg` - https://pylint.pycqa.org/en/latest/user_guide/run.html#command-line-options
         run: |
           source venv/bin/activate
-          PYLINT_CONDITIONAL_ARGS=()
           PYTHONPATH=$(pwd)
-          pylint webapi/*.py "${PYLINT_CONDITIONAL_ARGS[@]}"
+          pylint webapi/*.py --errors-only --disable=E0401
 
       - name: Code security check
         # Will find config automatically in `.bandit`, others have to specified with --ini - see https://github.com/PyCQA/bandit/issues/396#issuecomment-475152672
